@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/addLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/txtAddFirst"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/add_txtFirst"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtAddLast"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/add_txtLast"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtAddFirst" />
+
+    <EditText
+        android:id="@+id/txtAddPhone"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/add_txtPhone"
+        android:inputType="number|phone"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtAddLast" />
+
+    <EditText
+        android:id="@+id/txtAddEmail"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/add_txtEmail"
+        android:inputType="textEmailAddress"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtAddPhone" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="151dp"
+        android:layout_height="53dp"
+        android:text="@string/add_btnAdd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtAddEmail"
+        app:layout_constraintVertical_bias="0.634" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/editLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/txtEditFirst"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/edit_txtFirst"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtEditLast"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/edit_txtLast"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEditFirst" />
+
+    <EditText
+        android:id="@+id/txtEditPhone"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/edit_txtPhone"
+        android:inputType="number|phone"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEditLast" />
+
+    <EditText
+        android:id="@+id/txtEditEmail"
+        android:layout_width="370dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="30dp"
+        android:autofillHints=""
+        android:background="@drawable/border_textview"
+        android:ems="10"
+        android:hint="@string/edit_txtEmail"
+        android:inputType="textEmailAddress"
+        android:text=""
+        android:textColorHint="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEditPhone" />
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="151dp"
+        android:layout_height="53dp"
+        android:text="@string/edit_btnUpdate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtEditEmail" />
+</androidx.constraintlayout.widget.ConstraintLayout>
