@@ -1,6 +1,6 @@
 package com.holmesglen.assesment2.Models;
 
-public class Contact
+public class Contact implements Comparable
 {
     private String FirstName;
     private String LastName;
@@ -48,5 +48,9 @@ public class Contact
 
     public void setDateOfBirth(String dateOfBirth) {
         DateOfBirth = dateOfBirth;
+    }
+    @Override
+    public int compareTo(Object o) {
+        return this.LastName.compareToIgnoreCase(((Contact)o).LastName);
     }
 }

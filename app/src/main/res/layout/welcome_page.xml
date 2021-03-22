@@ -12,6 +12,7 @@
         android:layout_height="56dp"
         android:text="@string/firstPageMsg"
         android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
