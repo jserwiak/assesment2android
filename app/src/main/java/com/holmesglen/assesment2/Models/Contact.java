@@ -1,5 +1,6 @@
 package com.holmesglen.assesment2.Models;
 
+
 public class Contact implements Comparable
 {
     private String FirstName;

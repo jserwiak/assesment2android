@@ -83,7 +83,7 @@ public class PhonebookDb {
     }
 
     // get a element with index number
-    public Contact get(int index) {
+    public Contact getContact(int index) {
         Contact c = null;
         if(index >= 0 && index < phonebook.size()) {
             c = phonebook.get(index);

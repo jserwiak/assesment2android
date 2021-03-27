@@ -1,12 +1,11 @@
 package com.holmesglen.assesment2.Activities;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 
 import com.holmesglen.assesment2.Database.PhonebookDb;
 import com.holmesglen.assesment2.Lib.MyHash;
@@ -15,33 +14,23 @@ import com.holmesglen.assesment2.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-
+public class ListPageActivity extends AppCompatActivity {
     private MyHash hash;
     // for the recycler view instance in layout
     private RecyclerView recyclerViewMainList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_page);
-
-        findViewById(R.id.btnDark).setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListPageActivity.class);
-                startActivity(intent);}});}}
-       //on click go to the list page
-
-
-
-    /*public void goDetail(View view)
-    {
-
-        setContentView(R.layout.detail_page);
-    }*/
-    /*private void doHash()
-    {
         setContentView(R.layout.list_page);
+        doHash();
+
+
+    }
+
+    private void doHash()
+    {
+        //setContentView(R.layout.list_page);
         //getting data from database and hash it
         ArrayList<Contact> allContacts = PhonebookDb.getInstance().getAll();
         hash = new MyHash();
@@ -51,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewMainList = findViewById(R.id.recview1);
 
         //step 1 create adapter
-        MainListRecyclerViewAdapter adapter = new MainListRecyclerViewAdapter(hash.toList(false));
+        MainListRecyclerViewAdapter adapter = new MainListRecyclerViewAdapter(hash.toList(false),this);
 
         //step 2 set adapter
         recyclerViewMainList.setAdapter(adapter);
@@ -76,63 +65,63 @@ public class MainActivity extends AppCompatActivity {
     private void setAllNavBtnClickListener()
     {
         findViewById(R.id.btn_hash).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(0);});
+            ListPageActivity.this.navBtnClick(0);});
         findViewById(R.id.btn_A).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(1);});
+            ListPageActivity.this.navBtnClick(1);});
         findViewById(R.id.btn_B).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(2);});
+            ListPageActivity.this.navBtnClick(2);});
         findViewById(R.id.btn_C).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(3);});
+            ListPageActivity.this.navBtnClick(3);});
         findViewById(R.id.btn_D).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(4);});
+            ListPageActivity.this.navBtnClick(4);});
         findViewById(R.id.btn_E).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(5);});
+            ListPageActivity.this.navBtnClick(5);});
         findViewById(R.id.btn_F).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(6);});
+            ListPageActivity.this.navBtnClick(6);});
         findViewById(R.id.btn_G).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(7);});
+            ListPageActivity.this.navBtnClick(7);});
         findViewById(R.id.btn_H).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(8);});
+            ListPageActivity.this.navBtnClick(8);});
         findViewById(R.id.btn_I).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(9);});
+            ListPageActivity.this.navBtnClick(9);});
         findViewById(R.id.btn_J).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(10);});
+            ListPageActivity.this.navBtnClick(10);});
         findViewById(R.id.btn_K).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(11);});
+            ListPageActivity.this.navBtnClick(11);});
         findViewById(R.id.btn_L).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(12);});
+            ListPageActivity.this.navBtnClick(12);});
         findViewById(R.id.btn_M).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(13);});
+            ListPageActivity.this.navBtnClick(13);});
         findViewById(R.id.btn_N).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(14);});
+            ListPageActivity.this.navBtnClick(14);});
         findViewById(R.id.btn_O).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(15);});
+            ListPageActivity.this.navBtnClick(15);});
         findViewById(R.id.btn_P).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(16);});
+            ListPageActivity.this.navBtnClick(16);});
         findViewById(R.id.btn_Q).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(17);});
+            ListPageActivity.this.navBtnClick(17);});
         findViewById(R.id.btn_R).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(18);});
+            ListPageActivity.this.navBtnClick(18);});
         findViewById(R.id.btn_S).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(19);});
+            ListPageActivity.this.navBtnClick(19);});
         findViewById(R.id.btn_T).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(20);});
+            ListPageActivity.this.navBtnClick(20);});
         findViewById(R.id.btn_U).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(21);});
+            ListPageActivity.this.navBtnClick(21);});
         findViewById(R.id.btn_V).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(22);});
+            ListPageActivity.this.navBtnClick(22);});
         findViewById(R.id.btn_W).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(23);});
+            ListPageActivity.this.navBtnClick(23);});
         findViewById(R.id.btn_X).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(24);});
+            ListPageActivity.this.navBtnClick(24);});
         findViewById(R.id.btn_Y).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(25);});
+            ListPageActivity.this.navBtnClick(25);});
         findViewById(R.id.btn_Z).setOnClickListener((v) -> {
-            MainActivity.this.navBtnClick(26);});
+            ListPageActivity.this.navBtnClick(26);});
 
     }
     public void backBtnClick(View view)
     {
         doHash();
-    }*/
+    }}
 
