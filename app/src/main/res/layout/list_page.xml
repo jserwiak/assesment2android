@@ -498,6 +498,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/List_Page_btn_add"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_margin="4dp"
+            android:padding="6dp"
+            android:src="@drawable/plus"
+            tools:layout_editor_absoluteX="346dp"
+            tools:layout_editor_absoluteY="552dp"
+            android:scaleType="fitCenter"
+            android:background="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -41,5 +41,6 @@
     <string name="btnX">X</string>
     <string name="btnY">Y</string>
     <string name="btnZ">Z</string>
+    <string name="SwipeLeft">Swipe left to see contacts</string>
 
 </resources>
