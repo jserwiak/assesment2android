@@ -1,8 +1,14 @@
 package com.holmesglen.assesment2.Activities;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,14 +29,22 @@ public class ListPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_page);
-        doHash();
 
+
+        doHash();
+        findViewById(R.id.List_Page_btn_add).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListPageActivity.this, AddActivity.class);
+                startActivity(intent);
+            }});
 
     }
 
+
     private void doHash()
     {
-        //setContentView(R.layout.list_page);
         //getting data from database and hash it
         ArrayList<Contact> allContacts = PhonebookDb.getInstance().getAll();
         hash = new MyHash();

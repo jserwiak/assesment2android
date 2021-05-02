@@ -1,12 +1,9 @@
 package com.holmesglen.assesment2.Activities;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.TextView;
 
 import com.holmesglen.assesment2.Database.PhonebookDb;
 import com.holmesglen.assesment2.Models.Contact;
@@ -15,15 +12,16 @@ import com.holmesglen.assesment2.R;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class DetailActivity extends AppCompatActivity {
+public class EditActivity extends AppCompatActivity {
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_page);
-
-        TextView txtFirst = findViewById(R.id.txt_Detail_first);
-        TextView txtLast = findViewById(R.id.txt_Detail_last);
-        TextView txtPhone = findViewById(R.id.txt_Detail_phone);
-        TextView txtDoB = findViewById(R.id.txt_Detail_email);
+        setContentView(R.layout.edit_page);
+        TextView txtFirst = findViewById(R.id.txtEditFirst);
+        TextView txtLast = findViewById(R.id.txtEditLast);
+        TextView txtPhone = findViewById(R.id.txtEditPhone);
+        TextView txtDoB = findViewById(R.id.txtEditEmail);
 
         ArrayList<Contact> contactList;
         contactList = PhonebookDb.getInstance().getAll();
@@ -47,13 +45,6 @@ public class DetailActivity extends AppCompatActivity {
             }
 
         }
-        //back button listener ------- need to make it to go back to same view(showing same position on the list as before)
-        findViewById(R.id.btn_Detail_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this, ListPageActivity.class);
-                startActivity(intent);
-            }
-        });
     }
+
 }

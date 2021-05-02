@@ -1,10 +1,12 @@
 package com.holmesglen.assesment2.Activities;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GestureDetectorCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
     private GestureDetectorCompat detector;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
