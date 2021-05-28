@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
+import com.holmesglen.assesment2.Database.PhonebookDb;
 import com.holmesglen.assesment2.Models.Contact;
 import com.holmesglen.assesment2.R;
 import com.holmesglen.assesment2.ViewModels.MyHashViewModel;
@@ -203,9 +204,9 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
                     alertDialog.setNegativeButton("DELETE", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-
-                            // code for DELETE
-
+                            PhonebookDb.getDBInstance(activity.getApplicationContext()).contactDao().delete(c);
+                            Intent intent = new Intent( activity,ListPageActivity.class);
+                            activity.startActivity(intent);
                         }
                     });
 

@@ -6,12 +6,12 @@
     <string name="edit_txtFirst">First Name</string>
     <string name="edit_txtLast">Last Name</string>
     <string name="edit_txtPhone">Phone</string>
-    <string name="edit_txtEmail">Email</string>
+    <string name="edit_txtDob">Date of birth</string>
     <string name="edit_btnUpdate">Update</string>
     <string name="add_txtFirst">First Name</string>
     <string name="add_txtLast">Last Name</string>
     <string name="add_txtPhone">Phone</string>
-    <string name="add_txtEmail">Email</string>
+    <string name="add_txtDob">Date of birth</string>
     <string name="add_btnAdd">Add</string>
     <string name="detail_btnBack">Back</string>
     <string name="btnHash">#</string>

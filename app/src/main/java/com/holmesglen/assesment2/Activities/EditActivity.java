@@ -2,7 +2,9 @@ package com.holmesglen.assesment2.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.holmesglen.assesment2.Database.PhonebookDb;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class EditActivity extends AppCompatActivity {
+    Contact c = new Contact();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +29,28 @@ public class EditActivity extends AppCompatActivity {
         int index = -1;
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null && bundle.containsKey("contact_id"))
-        {
+        if (bundle != null && bundle.containsKey("contact_id")) {
             index = bundle.getInt("contact_id");
 
-                Contact c = (Contact)PhonebookDb.getDBInstance(this).contactDao().getContactById(index);
-                txtFirst.setText(c.getFirstName());
-                txtLast.setText(c.getLastName());
-                txtPhone.setText(c.getPhone());
-                txtDoB.setText(c.getDateOfBirth());
-        }
-    }
+            c = (Contact) PhonebookDb.getDBInstance(this).contactDao().getContactById(index);
+            txtFirst.setText(c.getFirstName());
+            txtLast.setText(c.getLastName());
+            txtPhone.setText(c.getPhone());
+            txtDoB.setText(c.getDateOfBirth());
+            findViewById(R.id.btnUpdate).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    c.setFirstName(txtFirst.getText().toString());
+                    c.setLastName(txtLast.getText().toString());
+                    c.setPhone(txtPhone.getText().toString());
+                    c.setDateOfBirth(txtDoB.getText().toString());
 
+                    PhonebookDb.getDBInstance(getApplicationContext()).contactDao().update(c);
+                    Intent intent = new Intent( EditActivity.this,ListPageActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+    }
 }

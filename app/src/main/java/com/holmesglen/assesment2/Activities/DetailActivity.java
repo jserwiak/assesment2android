@@ -25,11 +25,6 @@ public class DetailActivity extends AppCompatActivity {
         TextView txtPhone = findViewById(R.id.txt_Detail_phone);
         TextView txtEmail = findViewById(R.id.txt_Detail_dob);
 
-        /*ArrayList<Contact> contactList;
-        contactList = (ArrayList<Contact>)PhonebookDb.getDBInstance(this).contactDao().getAllContacts();
-        Collections.sort(contactList);*/
-
-
         int index = -1;
 
 
