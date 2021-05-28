@@ -1,15 +1,13 @@
 package com.holmesglen.assesment2.Activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.EditText;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,28 +15,34 @@ import com.holmesglen.assesment2.Database.PhonebookDb;
 import com.holmesglen.assesment2.Lib.MyHash;
 import com.holmesglen.assesment2.Models.Contact;
 import com.holmesglen.assesment2.R;
+import com.holmesglen.assesment2.ViewModels.MyHashViewModel;
 
 import java.util.ArrayList;
 
 public class ListPageActivity extends AppCompatActivity {
-    private MyHash hash;
+    private MyHashViewModel hash;
     // for the recycler view instance in layout
     private RecyclerView recyclerViewMainList;
+    private MainListRecyclerViewAdapter adapter;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_page);
+        PhonebookDb.initData(this);
 
-
+        hash = new ViewModelProvider(this).get(MyHashViewModel.class);
         doHash();
-        findViewById(R.id.List_Page_btn_add).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ListPageActivity.this, AddActivity.class);
-                startActivity(intent);
-            }});
+        // sort
+        sortA2ZBtnClick();
+        sortZ2ABtnClick();
+
+        // search
+        searchBtnClick();
+        //add
+        addBtnClick();
+
 
     }
 
@@ -46,15 +50,15 @@ public class ListPageActivity extends AppCompatActivity {
     private void doHash()
     {
         //getting data from database and hash it
-        ArrayList<Contact> allContacts = PhonebookDb.getInstance().getAll();
-        hash = new MyHash();
-        hash.buildHashTable(allContacts);
+        ArrayList<Contact> allContacts = (ArrayList<Contact>)PhonebookDb.getDBInstance(this).contactDao().getAllContacts();
+        hash.myHash = new MyHash();
+        hash.myHash.buildHashTable(allContacts);
 
         //setting data for recyclerView
         recyclerViewMainList = findViewById(R.id.recview1);
 
         //step 1 create adapter
-        MainListRecyclerViewAdapter adapter = new MainListRecyclerViewAdapter(hash.toList(false),this);
+        adapter = new MainListRecyclerViewAdapter(hash.myHash.toList(false),this);
 
         //step 2 set adapter
         recyclerViewMainList.setAdapter(adapter);
@@ -72,7 +76,7 @@ public class ListPageActivity extends AppCompatActivity {
         {
             return;
         }
-        int offset = hash.calcOffsetByKey(key);
+        int offset = hash.myHash.calcOffsetByKey(key);
         //scroll the view
         ((LinearLayoutManager)recyclerViewMainList.getLayoutManager()).scrollToPositionWithOffset(offset, 0);
     }
@@ -137,5 +141,54 @@ public class ListPageActivity extends AppCompatActivity {
     public void backBtnClick(View view)
     {
         doHash();
-    }}
+    }
+    private void addBtnClick() {
+        findViewById(R.id.List_Page_btn_add).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( ListPageActivity.this,AddActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    // sort a~z
+    private void sortA2ZBtnClick() {
+        findViewById(R.id.List_Page_btn_az).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.reloadContactList(hash.myHash.toList(false));
+            }
+        });
+    }
+
+    // sort z~a
+    private void sortZ2ABtnClick() {
+        findViewById(R.id.List_Page_btn_za).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.reloadContactList(hash.myHash.toList(true));
+            }
+        });
+    }
+    //search
+    private void searchBtnClick() {
+        findViewById(R.id.List_Page_btn_search).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViewById(R.id.search_layout).setVisibility(View.VISIBLE);
+            }});
+                findViewById(R.id.searchBtn).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                String wantedStr = ((EditText)findViewById(R.id.searchtxt)).getText().toString();
+                if(wantedStr != null && !wantedStr.isEmpty()) {
+                    adapter.reloadContactList(hash.myHash.shortList(wantedStr));
+                } else {
+                    adapter.reloadContactList(hash.myHash.toList(false));
+                }
+            }
+        });
+    }
+
+}
 

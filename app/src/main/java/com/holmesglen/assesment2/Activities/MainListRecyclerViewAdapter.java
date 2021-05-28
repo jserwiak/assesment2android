@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,12 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
 import com.holmesglen.assesment2.Models.Contact;
 import com.holmesglen.assesment2.R;
+import com.holmesglen.assesment2.ViewModels.MyHashViewModel;
 
 import java.util.ArrayList;
 
@@ -31,6 +34,10 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
         this.contactList = contactList;
         this.activity = activity;
 
+    }
+    public void reloadContactList (ArrayList<Contact> contactList) {
+        this.contactList = contactList;
+        this.notifyDataSetChanged();
     }
 
     @NonNull
@@ -52,6 +59,20 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
         holder.txtViewFirst.setText(contactList.get(position).getFirstName());
         holder.txtViewDoB.setText(contactList.get(position).getDateOfBirth());
         holder.id = position;
+/*
+        holder.itemView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x = position;
+
+                Contact c = contactList.get(x);
+                Intent intent = new Intent(activity, DetailActivity.class);
+                intent.putExtra("contact_index", x);
+                activity.startActivity(intent);
+                return;
+            }
+        });
+*/
         viewBinderHelper.closeLayout(String.valueOf(contactList.get(position)));
     }
 
@@ -133,25 +154,32 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
                 @Override
                 public void onClick(View v) {
                     int x = id;
-
+                    int y = 0;
                     Contact c = contactList.get(x);
+                    y = c.getId();
                     Intent intent = new Intent(activity, DetailActivity.class);
-                    intent.putExtra("contact_index", x);
+                    intent.putExtra("contact_id",y);
+                    //intent.putExtra("contact_list",contactList);
                     activity.startActivity(intent);
                     return;
                 }
             });
+
+
             //edit button functionality
             itemView.findViewById(R.id.Swipe_btn_edit).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int x = id;
-
+                    int y = 0;
                     Contact c = contactList.get(x);
+                    y = c.getId();
                     Intent intent = new Intent(activity, EditActivity.class);
-                    intent.putExtra("contact_index", x);
+                    intent.putExtra("contact_id",y);
+                    //intent.putExtra("contact_list",contactList);
                     activity.startActivity(intent);
                     return;
+
                 }
             });
             //delete button functionality

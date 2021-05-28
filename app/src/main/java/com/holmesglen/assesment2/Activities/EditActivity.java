@@ -21,29 +21,20 @@ public class EditActivity extends AppCompatActivity {
         TextView txtFirst = findViewById(R.id.txtEditFirst);
         TextView txtLast = findViewById(R.id.txtEditLast);
         TextView txtPhone = findViewById(R.id.txtEditPhone);
-        TextView txtDoB = findViewById(R.id.txtEditEmail);
+        TextView txtDoB = findViewById(R.id.txtEditDob);
 
-        ArrayList<Contact> contactList;
-        contactList = PhonebookDb.getInstance().getAll();
-        Collections.sort(contactList);
         int index = -1;
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null && bundle.containsKey("contact_index"))
+        if(bundle != null && bundle.containsKey("contact_id"))
         {
-            index = bundle.getInt("contact_index"); // this is getting the index of sorted array list from hashtable,
-            //to get proper data we need to sort contacts.
-            if(index >= 0 && index <contactList.size()) {
+            index = bundle.getInt("contact_id");
 
-
-                Contact c = contactList.get(index);
-
+                Contact c = (Contact)PhonebookDb.getDBInstance(this).contactDao().getContactById(index);
                 txtFirst.setText(c.getFirstName());
                 txtLast.setText(c.getLastName());
                 txtPhone.setText(c.getPhone());
                 txtDoB.setText(c.getDateOfBirth());
-            }
-
         }
     }
 

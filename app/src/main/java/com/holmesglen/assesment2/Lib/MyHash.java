@@ -4,6 +4,7 @@ import com.holmesglen.assesment2.Models.Contact;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.regex.Pattern;
 
 public class MyHash {
     private ArrayList<Contact> hashTable[];
@@ -28,14 +29,20 @@ public class MyHash {
         }
         return c;
     }
+    // for search
+    public ArrayList<Contact> shortList(String wantedStr) {
+        ArrayList<Contact> c = new ArrayList ();
+        for(int i = 0; i < hashTable.length; i++){
+            for(int j = 0; j < hashTable[i].size(); j++){
+                if (Pattern.compile(Pattern.quote(wantedStr), Pattern.CASE_INSENSITIVE).matcher(hashTable[i].get(j).getLastName()).find()) {
+                    c.add(hashTable[i].get(j));
+                }
+            }
+        }
+        return c;
+    }
 
-    // for a specific key, this function calculate the offset of the element
-    // who's first letter start with "key" in the arraylist.
-    // for example. in the following list, if key == c/C, offset = 3 + 1 = 4.
-    // meaning that the first name in C list has an index of 4.
-    // A -> Alan -> Alex -> Amahli
-    // B -> Bob
-    // C -> Cali -> Cindy
+
     public int calcOffsetByKey(int k) {
         int offset = 0;
         if (k < 0 || k >= hashTable.length) {
