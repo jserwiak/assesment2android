@@ -175,15 +175,28 @@ public class ListPageActivity extends AppCompatActivity {
         findViewById(R.id.List_Page_btn_search).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                findViewById(R.id.search_layout).setVisibility(View.VISIBLE);
+                if(findViewById(R.id.search_layout).getVisibility() == View.INVISIBLE)
+                {
+                    findViewById(R.id.search_layout).setVisibility(View.VISIBLE);
+                    findViewById(R.id.recview1).setVisibility(View.INVISIBLE);
+                }
+                else
+                {
+                    findViewById(R.id.search_layout).setVisibility(View.INVISIBLE);
+                    findViewById(R.id.recview1).setVisibility(View.VISIBLE);
+                }
             }});
                 findViewById(R.id.searchBtn).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                 String wantedStr = ((EditText)findViewById(R.id.searchtxt)).getText().toString();
                 if(wantedStr != null && !wantedStr.isEmpty()) {
+                    findViewById(R.id.recview1).setVisibility(View.VISIBLE);
+                    findViewById(R.id.search_layout).setVisibility(View.INVISIBLE);
                     adapter.reloadContactList(hash.myHash.shortList(wantedStr));
                 } else {
+                    //findViewById(R.id.recview1).setVisibility(View.VISIBLE);
+                    //findViewById(R.id.search_layout).setVisibility(View.INVISIBLE);
                     adapter.reloadContactList(hash.myHash.toList(false));
                 }
             }
