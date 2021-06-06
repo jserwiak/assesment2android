@@ -19,13 +19,11 @@
         </activity>
         <activity
             android:name=".Activities.ListPageActivity"
-            android:screenOrientation="portrait" />
+            />
         <activity
-            android:name=".Activities.DetailActivity"
-            android:screenOrientation="portrait" />
+            android:name=".Activities.DetailActivity" />
         <activity
-            android:name=".Activities.AddActivity"
-            android:screenOrientation="portrait" />
+            android:name=".Activities.AddActivity" />
     </application>
 
 </manifest>
