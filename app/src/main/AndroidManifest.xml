@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Assesment2">
-        <activity android:name=".Activities.EditActivity"></activity>
+        <activity
+            android:name=".Activities.EditActivity"
+            android:label="Edit Contact">
+        </activity>
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +22,15 @@
         </activity>
         <activity
             android:name=".Activities.ListPageActivity"
+            android:label="Contact List"
             />
         <activity
-            android:name=".Activities.DetailActivity" />
+            android:name=".Activities.DetailActivity"
+            android:label="Contact Details"/>
         <activity
-            android:name=".Activities.AddActivity" />
+            android:name=".Activities.AddActivity"
+            android:label="Add Contacts"/>
+
     </application>
 
 </manifest>

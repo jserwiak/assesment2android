@@ -39,7 +39,7 @@ public class DetailActivity extends AppCompatActivity {
                 txtPhone.setText(c.getPhone());
                 txtEmail.setText(c.getDateOfBirth());
         }
-        //back button listener ------- need to make it to go back to same view(showing same position on the list as before)
+        //back button listener
         findViewById(R.id.btn_Detail_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

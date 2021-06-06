@@ -160,12 +160,10 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
                     y = c.getId();
                     Intent intent = new Intent(activity, DetailActivity.class);
                     intent.putExtra("contact_id",y);
-                    //intent.putExtra("contact_list",contactList);
                     activity.startActivity(intent);
                     return;
                 }
             });
-
 
             //edit button functionality
             itemView.findViewById(R.id.Swipe_btn_edit).setOnClickListener(new View.OnClickListener() {
@@ -188,9 +186,7 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
                 @Override
                 public void onClick(View v) {
                     int x = id;
-
                     Contact c = contactList.get(x);
-
                     //popup window "Are you sure you want to delete?" after clicking delete button
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(itemView.getContext());
                     alertDialog.setTitle("Are you sure you want to delete this contact?");

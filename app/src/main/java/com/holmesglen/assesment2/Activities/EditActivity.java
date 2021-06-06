@@ -38,6 +38,7 @@ public class EditActivity extends AppCompatActivity {
             txtPhone.setText(c.getPhone());
             txtDoB.setText(c.getDateOfBirth());
             findViewById(R.id.btnUpdate).setOnClickListener(new View.OnClickListener() {
+                //update button listener
                 @Override
                 public void onClick(View v) {
                     c.setFirstName(txtFirst.getText().toString());
