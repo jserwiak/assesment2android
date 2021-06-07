@@ -25,6 +25,8 @@ import com.holmesglen.assesment2.R;
 
 import java.util.ArrayList;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
     private GestureDetectorCompat detector;
@@ -101,6 +103,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         if(e1.getX() - e2.getX()>SWIPE_MIN_DISTANCE) {
             Intent intent = new Intent(MainActivity.this, ListPageActivity.class);
             startActivity(intent);
+
+            CustomIntent.customType(MainActivity.this, "left-to-right");
             return true;
         }
         return false;
