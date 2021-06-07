@@ -36,16 +36,37 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
         detector = new GestureDetectorCompat(this, this);
 
+        SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
+        final boolean[] theme_boolean = {mPrefs.getBoolean("theme_boolean", true)};
+        if (theme_boolean[0]) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
         findViewById(R.id.btnDark).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                if (theme_boolean[0]) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    theme_boolean[0] = false;
+                }
+                SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
+                SharedPreferences.Editor mEditor = mPrefs.edit();
+                mEditor.putBoolean("theme_boolean", theme_boolean[0]).commit();
             }
         });
         findViewById(R.id.btnLight).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                if (!theme_boolean[0]) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    theme_boolean[0] = true;
+                }
+                SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
+                SharedPreferences.Editor mEditor = mPrefs.edit();
+                mEditor.putBoolean("theme_boolean", theme_boolean[0]).commit();
             }
         });
     }

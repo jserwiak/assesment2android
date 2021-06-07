@@ -55,7 +55,7 @@ public class ListPageActivity extends AppCompatActivity {
         hash.myHash.buildHashTable(allContacts);
 
         //setting data for recyclerView
-        recyclerViewMainList = findViewById(R.id.recview1);
+        recyclerViewMainList = findViewById(R.id.recview1);//assigning  the layout
 
         //step 1 create adapter
         adapter = new MainListRecyclerViewAdapter(hash.myHash.toList(false),this);

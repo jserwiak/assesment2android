@@ -52,14 +52,17 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
 
     @Override
     public void onBindViewHolder(@NonNull MainListItemViewHolder holder, int position) {
-
+        //for the swipe left to reveal buttons
         viewBinderHelper.setOpenOnlyOne(true);
         viewBinderHelper.bind(holder.swipeRevealLayout, String.valueOf(contactList.get(position)));
+        viewBinderHelper.closeLayout(String.valueOf(contactList.get(position)));
+
         holder.txtViewLast.setText(contactList.get(position).getLastName());
         holder.txtViewPhone.setText(contactList.get(position).getPhone());
         holder.txtViewFirst.setText(contactList.get(position).getFirstName());
         holder.txtViewDoB.setText(contactList.get(position).getDateOfBirth());
         holder.id = position;
+
 /*
         holder.itemView1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +77,7 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
             }
         });
 */
-        viewBinderHelper.closeLayout(String.valueOf(contactList.get(position)));
+
     }
 
     @Override
