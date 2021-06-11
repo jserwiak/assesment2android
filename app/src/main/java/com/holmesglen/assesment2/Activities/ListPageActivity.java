@@ -34,19 +34,16 @@ public class ListPageActivity extends AppCompatActivity {
 
         hash = new ViewModelProvider(this).get(MyHashViewModel.class);
         doHash();
-        // sort
+        // sort functions
         sortA2ZBtnClick();
+
         sortZ2ABtnClick();
 
-        // search
+        // search function
         searchBtnClick();
-        //add
+        //add function
         addBtnClick();
-
-
     }
-
-
     private void doHash()
     {
         //getting data from database and hash it
@@ -151,7 +148,7 @@ public class ListPageActivity extends AppCompatActivity {
             }
         });
     }
-    // sort a~z
+    // sort a to z function
     private void sortA2ZBtnClick() {
         findViewById(R.id.List_Page_btn_az).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +158,7 @@ public class ListPageActivity extends AppCompatActivity {
         });
     }
 
-    // sort z~a
+    // sort z to a function
     private void sortZ2ABtnClick() {
         findViewById(R.id.List_Page_btn_za).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,7 +167,7 @@ public class ListPageActivity extends AppCompatActivity {
             }
         });
     }
-    //search
+    //search function
     private void searchBtnClick() {
         findViewById(R.id.List_Page_btn_search).setOnClickListener(new View.OnClickListener() {
             @Override

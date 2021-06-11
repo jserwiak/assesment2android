@@ -20,7 +20,7 @@ public abstract class PhonebookDb extends RoomDatabase {
 
     private static PhonebookDb phonebookDb;
 
-    // note the following code style match the singleton class code pattern
+    //getting the instance of the database
     public static PhonebookDb getDBInstance(final Context context) {
         if(phonebookDb == null) {
             phonebookDb = Room.databaseBuilder(

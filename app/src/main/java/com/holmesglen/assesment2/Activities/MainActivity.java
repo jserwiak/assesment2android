@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,15 +27,48 @@ import com.holmesglen.assesment2.R;
 import java.util.ArrayList;
 
 import maes.tech.intentanim.CustomIntent;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener {
 
     private GestureDetectorCompat detector;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_page);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.111:5000/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RemoteContactDB service = retrofit.create(RemoteContactDB.class);
+
+        //Call<Contact> contactCreate = service.ContactCreate(new Contact("Something", "Something", "0477896541", "01/01/1987"));
+        Call<Contact> display = service.Contact(9);
+        display.enqueue(new Callback<Contact>() {
+            private static final String TAG = "";
+
+            //Call API - success
+            @Override
+            public void onResponse(Call<Contact> call, Response<Contact> response) {
+                Contact contact = response.body();
+                Log.d(TAG, contact.toString());
+                return;
+            }
+            //Call API - failed
+            @Override
+            public void onFailure(Call<Contact> call, Throwable t) {
+                Log.d(TAG, "onFailure" + t.getCause());
+                return;
+            }
+        });
 
         detector = new GestureDetectorCompat(this, this);
 

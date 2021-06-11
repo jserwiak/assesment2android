@@ -12,27 +12,35 @@ public class Contact implements Comparable
     @ColumnInfo(name = "id")
     private int id;
     @ColumnInfo(name = "firstName")
-    private String FirstName;
+    private String firstName;
     @ColumnInfo(name = "lastName")
-    private String LastName;
+    private String lastName;
     @ColumnInfo(name = "phone")
-    private String Phone;
+    private String phone;
     @ColumnInfo(name = "dateOfBirth")
-    private String DateOfBirth;
+    private String dateOfBirth;
 
-    public Contact()
-    {
-
+    public Contact() {
     }
+
     @Ignore
     public Contact(String firstName, String lastName, String phone, String dateOfBirth) {
-        FirstName = firstName;
-        LastName = lastName;
-        Phone = phone;
-        DateOfBirth = dateOfBirth;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.dateOfBirth = dateOfBirth;
     }
 
-
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id=" + id +
+                ", FirstName='" + firstName + '\'' +
+                ", LastName='" + lastName + '\'' +
+                ", Phone='" + phone + '\'' +
+                ", DateOfBirth='" + dateOfBirth + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;
@@ -43,39 +51,39 @@ public class Contact implements Comparable
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        lastName = lastName;
     }
 
     public String getPhone() {
-        return Phone;
+        return phone;
     }
 
     public void setPhone(String phone) {
-        Phone = phone;
+        phone = phone;
     }
 
     public String getDateOfBirth() {
-        return DateOfBirth;
+        return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        DateOfBirth = dateOfBirth;
+        dateOfBirth = dateOfBirth;
     }
 
     @Override
     public int compareTo(Object o) {
-        return this.LastName.compareToIgnoreCase(((Contact)o).LastName);
+        return this.lastName.compareToIgnoreCase(((Contact)o).lastName);
     }
 }

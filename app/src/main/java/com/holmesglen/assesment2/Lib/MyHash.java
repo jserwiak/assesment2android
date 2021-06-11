@@ -29,7 +29,7 @@ public class MyHash {
         }
         return c;
     }
-    // for search
+    // for search function
     public ArrayList<Contact> shortList(String wantedStr) {
         ArrayList<Contact> c = new ArrayList ();
         for(int i = 0; i < hashTable.length; i++){
@@ -41,8 +41,7 @@ public class MyHash {
         }
         return c;
     }
-
-
+    //calculating the ofset
     public int calcOffsetByKey(int k) {
         int offset = 0;
         if (k < 0 || k >= hashTable.length) {
@@ -56,8 +55,7 @@ public class MyHash {
         return offset;
     }
 
-    // build hash table. use arraylist to resolve collision.
-    // sort all arraylists
+    // sort the arraylists of contacts
     public void buildHashTable(ArrayList<Contact> list) {
         if(list == null) {
             return;
@@ -73,7 +71,7 @@ public class MyHash {
         }
         return;
     }
-
+//getting first letter of the last name as ascii value
     private int hash(String s) {
         char c = s.toUpperCase().charAt(0);
         int asciiValue = (int)c;
@@ -84,8 +82,6 @@ public class MyHash {
         }
         return asciiValue;
     }
-
-
 
     public void dump(){
         for(int i = 0; i < hashTable.length; i++){
