@@ -1,3 +1,10 @@
+/**
+ * This is a ContactDao interface for database queries
+ * @author Jerzy_Serwiak
+ * @version 1.0
+ *
+ */
+
 package com.holmesglen.assesment2.Dao;
 
 import androidx.room.Dao;
@@ -10,6 +17,7 @@ import androidx.room.Update;
 import com.holmesglen.assesment2.Models.Contact;
 
 import java.util.List;
+
 @Dao
 public interface ContactDao {
     //create

@@ -1,3 +1,10 @@
+/**
+ * This is a Contact class for Contact model
+ * @author Jerzy_Serwiak
+ * @version 1.0
+ *
+ */
+
 package com.holmesglen.assesment2.Models;
 
 import androidx.room.ColumnInfo;
@@ -22,8 +29,7 @@ public class Contact implements Comparable
 
     public Contact() {
     }
-
-    @Ignore
+    //class constructor
     public Contact(String firstName, String lastName, String phone, String dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,14 +37,16 @@ public class Contact implements Comparable
         this.dateOfBirth = dateOfBirth;
     }
 
+    @Ignore
+    //get, set  and toString methods
     @Override
     public String toString() {
         return "Contact{" +
                 "id=" + id +
-                ", FirstName='" + firstName + '\'' +
-                ", LastName='" + lastName + '\'' +
-                ", Phone='" + phone + '\'' +
-                ", DateOfBirth='" + dateOfBirth + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
                 '}';
     }
 
@@ -55,7 +63,7 @@ public class Contact implements Comparable
     }
 
     public void setFirstName(String firstName) {
-        firstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -63,7 +71,7 @@ public class Contact implements Comparable
     }
 
     public void setLastName(String lastName) {
-        lastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getPhone() {
@@ -71,7 +79,7 @@ public class Contact implements Comparable
     }
 
     public void setPhone(String phone) {
-        phone = phone;
+        this.phone = phone;
     }
 
     public String getDateOfBirth() {
@@ -79,7 +87,7 @@ public class Contact implements Comparable
     }
 
     public void setDateOfBirth(String dateOfBirth) {
-        dateOfBirth = dateOfBirth;
+        this.dateOfBirth = dateOfBirth;
     }
 
     @Override

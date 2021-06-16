@@ -1,3 +1,11 @@
+/**
+ * This is a MainListRecyclerViewAdapter class that holds the logic for the RecyclerView and adapter
+ * It also holds logic for several buttons logic
+ * @author Jerzy_Serwiak
+ * @version 1.0
+ *
+ */
+
 package com.holmesglen.assesment2.Activities;
 
 import android.content.Context;
@@ -62,21 +70,6 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
         holder.txtViewFirst.setText(contactList.get(position).getFirstName());
         holder.txtViewDoB.setText(contactList.get(position).getDateOfBirth());
         holder.id = position;
-
-/*
-        holder.itemView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int x = position;
-
-                Contact c = contactList.get(x);
-                Intent intent = new Intent(activity, DetailActivity.class);
-                intent.putExtra("contact_index", x);
-                activity.startActivity(intent);
-                return;
-            }
-        });
-*/
 
     }
 
@@ -206,6 +199,9 @@ public class MainListRecyclerViewAdapter extends RecyclerView.Adapter<MainListRe
                             PhonebookDb.getDBInstance(activity.getApplicationContext()).contactDao().delete(c);
                             Intent intent = new Intent( activity,ListPageActivity.class);
                             activity.startActivity(intent);
+                            //toast for client feedback
+                            Toast.makeText(activity.getApplicationContext(), "Contact has been deleted"
+                                    ,Toast.LENGTH_SHORT).show();
                         }
                     });
 

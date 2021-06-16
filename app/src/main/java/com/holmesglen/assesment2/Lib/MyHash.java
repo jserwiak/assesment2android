@@ -1,3 +1,10 @@
+/**
+ * This is a MyHash class for hash table logic
+ * @author Jerzy_Serwiak
+ * @version 1.0
+ *
+ */
+
 package com.holmesglen.assesment2.Lib;
 
 import com.holmesglen.assesment2.Models.Contact;

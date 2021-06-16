@@ -1,3 +1,10 @@
+/**
+ * This is a DetailActivity class for displaying contact details
+ * @author Jerzy_Serwiak
+ * @version 1.0
+ *
+ */
+
 package com.holmesglen.assesment2.Activities;
 
 import android.content.Intent;

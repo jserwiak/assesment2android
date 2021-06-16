@@ -1,3 +1,10 @@
+/**
+ * This is a EditActivity class for editing contacts
+ * @author Jerzy_Serwiak
+ * @version 1.0
+ *
+ */
+
 package com.holmesglen.assesment2.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.holmesglen.assesment2.Database.PhonebookDb;
 import com.holmesglen.assesment2.Models.Contact;
@@ -37,6 +45,7 @@ public class EditActivity extends AppCompatActivity {
             txtLast.setText(c.getLastName());
             txtPhone.setText(c.getPhone());
             txtDoB.setText(c.getDateOfBirth());
+
             findViewById(R.id.btnUpdate).setOnClickListener(new View.OnClickListener() {
                 //update button listener
                 @Override
@@ -49,6 +58,8 @@ public class EditActivity extends AppCompatActivity {
                     PhonebookDb.getDBInstance(getApplicationContext()).contactDao().update(c);
                     Intent intent = new Intent( EditActivity.this,ListPageActivity.class);
                     startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Contact has been updated"
+                            ,Toast.LENGTH_SHORT).show();
                 }
             });
         }

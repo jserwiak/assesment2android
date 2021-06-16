@@ -1,3 +1,11 @@
+/**
+ * This is a ListPageActivity class for showing the list of all contacts as well as
+ * hash table and several buttons logic
+ * @author Jerzy_Serwiak
+ * @version 1.0
+ *
+ */
+
 package com.holmesglen.assesment2.Activities;
 
 import android.content.Context;
@@ -34,9 +42,9 @@ public class ListPageActivity extends AppCompatActivity {
 
         hash = new ViewModelProvider(this).get(MyHashViewModel.class);
         doHash();
+
         // sort functions
         sortA2ZBtnClick();
-
         sortZ2ABtnClick();
 
         // search function
@@ -139,6 +147,7 @@ public class ListPageActivity extends AppCompatActivity {
     {
         doHash();
     }
+    //add button on click logic
     private void addBtnClick() {
         findViewById(R.id.List_Page_btn_add).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,7 +166,6 @@ public class ListPageActivity extends AppCompatActivity {
             }
         });
     }
-
     // sort z to a function
     private void sortZ2ABtnClick() {
         findViewById(R.id.List_Page_btn_za).setOnClickListener(new View.OnClickListener() {
